@@ -5,11 +5,11 @@ def MST(l,m):
     d = (2*l-1)*(2*l+3)
     first = 0.5*np.sqrt(l*(l+1)/d)
     second = (l*l+l-3*m*m)/d
-    return (first+second)*58/3*(-1)**m #rimosso l'offset
+    return (first+second)*58/3*(-1)**m + 11
 
 def corrST(cl,lmax):
     clout = np.zeros_like(cl)
-    for l in range(2,lmax):
+    for l in range(2,lmax+1):
         for m in range(-l,l+1):
             clout[l] += MST(l,m)*cl[l]
         clout[l] /= (2*l+1)
